@@ -117,10 +117,10 @@ export default function Hospitals() {
           </div>
         </div>
 
-        <div className="cards-grid">
+        <div className="cards-grid" key={filter + sortBy}>
           {filtered.map((h, i) => (
             <div
-              className="hospital-card reveal"
+              className="hospital-card reveal visible"
               key={h.id}
               style={{ transitionDelay: `${i * 0.1}s` }}
             >
