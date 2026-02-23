@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
 import { useLang } from '../contexts/LangContext';
 
@@ -65,13 +65,24 @@ const guides = [
   },
 ];
 
+const roleOptions = [
+  { value: 'All',   en: 'All Roles',                      te: 'అన్ని పాత్రలు' },
+  { value: 'ASHA',  en: 'ASHA Workers',                   te: 'ASHA కార్యకర్తలు' },
+  { value: 'ANM',   en: 'ANM (Auxiliary Nurse Midwife)',   te: 'ANM (సహాయ నర్సు మంత్రసాని)' },
+];
+
 export default function HealthGuides() {
+  const [roleFilter, setRoleFilter] = useState('All');
   const ref = useScrollReveal();
-  const { t, tr } = useLang();
+  const { lang, t, tr } = useLang();
 
   useEffect(() => { document.title = 'Health Guides – Grama Arogya'; }, []);
 
   const helpItems = t('guides.helpItems');
+
+  const filteredGuides = roleFilter === 'All'
+    ? guides
+    : guides.filter(g => g.role.includes(roleFilter));
 
   return (
     <div className="page-enter" ref={ref}>
@@ -97,8 +108,25 @@ export default function HealthGuides() {
         <h2 className="section-title reveal">{t('guides.gridTitle')}</h2>
         <p className="section-subtitle reveal">{t('guides.gridSub')}</p>
 
+        <div className="filter-row reveal">
+          <div className="filter-select-wrap">
+            <label className="filter-label">{lang === 'te' ? 'పాత్ర ద్వారా వడపోత:' : 'Filter by Role:'}</label>
+            <select
+              className="filter-select"
+              value={roleFilter}
+              onChange={e => setRoleFilter(e.target.value)}
+            >
+              {roleOptions.map(o => (
+                <option key={o.value} value={o.value}>
+                  {lang === 'te' ? o.te : o.en}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
         <div className="cards-grid">
-          {guides.map((g, i) => (
+          {filteredGuides.map((g, i) => (
             <div
               className="guide-card reveal"
               key={g.name}

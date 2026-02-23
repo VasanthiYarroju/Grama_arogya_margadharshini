@@ -77,14 +77,19 @@ const badgeMap = { PHC: 'badge-phc', Government: 'badge-govt', Private: 'badge-p
 
 export default function Hospitals() {
   const [filter, setFilter] = useState('All');
+  const [sortBy, setSortBy] = useState('default');
   const ref = useScrollReveal();
-  const { t, tr } = useLang();
+  const { lang, t, tr } = useLang();
 
   useEffect(() => { document.title = 'Hospitals – Grama Arogya'; }, []);
 
   const filters = t('hospitals.filters');
   const filterKeys = ['All', 'Government', 'Private', 'PHC'];
-  const filtered = filter === 'All' ? hospitals : hospitals.filter(h => h.type === filter);
+
+  let filtered = filter === 'All' ? hospitals : hospitals.filter(h => h.type === filter);
+  if (sortBy === 'distance') {
+    filtered = [...filtered].sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
+  }
 
   return (
     <div className="page-enter" ref={ref}>
@@ -94,16 +99,22 @@ export default function Hospitals() {
       </div>
 
       <div className="section">
-        <div className="filter-bar reveal">
-          {filterKeys.map((fk, i) => (
-            <button
-              key={fk}
-              className={`filter-btn${filter === fk ? ' active' : ''}`}
-              onClick={() => setFilter(fk)}
-            >
-              {filters[i]}
-            </button>
-          ))}
+        <div className="filter-row reveal">
+          <div className="filter-select-wrap">
+            <label className="filter-label">{lang === 'te' ? 'రకం:' : 'Filter by Type:'}</label>
+            <select className="filter-select" value={filter} onChange={e => setFilter(e.target.value)}>
+              {filterKeys.map((fk, i) => (
+                <option key={fk} value={fk}>{filters[i]}</option>
+              ))}
+            </select>
+          </div>
+          <div className="filter-select-wrap">
+            <label className="filter-label">{lang === 'te' ? 'క్రమీకరించు:' : 'Sort by:'}</label>
+            <select className="filter-select" value={sortBy} onChange={e => setSortBy(e.target.value)}>
+              <option value="default">{lang === 'te' ? 'డిఫాల్ట్' : 'Default'}</option>
+              <option value="distance">{lang === 'te' ? 'దూరం (సమీపం నుండి)' : 'Distance (Nearest first)'}</option>
+            </select>
+          </div>
         </div>
 
         <div className="cards-grid">

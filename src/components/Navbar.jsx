@@ -1,21 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useLang } from '../contexts/LangContext';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [openGroup, setOpenGroup] = useState(null);
   const { lang, setLang, t } = useLang();
-
-  const links = [
-    { to: '/', key: 'nav.home' },
-    { to: '/hospitals', key: 'nav.hospitals' },
-    { to: '/health-camps', key: 'nav.camps' },
-    { to: '/health-guides', key: 'nav.guides' },
-    { to: '/schemes', key: 'nav.schemes' },
-    { to: '/emergency', key: 'nav.emergency' },
-    { to: '/first-aid', key: 'nav.firstAid' },
-  ];
+  const navRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -23,10 +15,59 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    const handler = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) setOpenGroup(null);
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
+  const close = () => { setOpen(false); setOpenGroup(null); };
+  const toggleGroup = (g) => setOpenGroup(prev => prev === g ? null : g);
+
+  const serviceLinks = [
+    { to: '/hospitals',    key: 'nav.hospitals', icon: '🏥' },
+    { to: '/health-camps', key: 'nav.camps',      icon: '⛺' },
+  ];
+  const infoLinks = [
+    { to: '/health-guides', key: 'nav.guides',  icon: '👩‍⚕️' },
+    { to: '/schemes',       key: 'nav.schemes', icon: '📋' },
+  ];
+
+  const DropGroup = ({ groupKey, label, links }) => (
+    <li
+      className={`nav-group${openGroup === groupKey ? ' is-open' : ''}`}
+      onMouseEnter={() => window.innerWidth > 900 && setOpenGroup(groupKey)}
+      onMouseLeave={() => window.innerWidth > 900 && setOpenGroup(null)}
+    >
+      <button
+        className="nav-group-btn"
+        onClick={() => toggleGroup(groupKey)}
+        aria-expanded={openGroup === groupKey}
+      >
+        {label} <span className="nav-chevron">▾</span>
+      </button>
+      <ul className="nav-dropdown">
+        {links.map(l => (
+          <li key={l.to}>
+            <NavLink
+              to={l.to}
+              className={({ isActive }) => isActive ? 'active' : ''}
+              onClick={close}
+            >
+              <span className="dd-icon">{l.icon}</span> {t(l.key)}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+    </li>
+  );
+
   return (
-    <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
+    <nav className={`navbar${scrolled ? ' scrolled' : ''}`} ref={navRef}>
       <div className="nav-inner">
-        <NavLink to="/" className="nav-logo" onClick={() => setOpen(false)}>
+        <NavLink to="/" className="nav-logo" onClick={close}>
           <span className="logo-icon">🌿</span>
           <span>{t('nav.logo')}</span>
         </NavLink>
@@ -42,18 +83,26 @@ export default function Navbar() {
         </button>
 
         <ul className={`nav-links${open ? ' open' : ''}`}>
-          {links.map(l => (
-            <li key={l.to}>
-              <NavLink
-                to={l.to}
-                end={l.to === '/'}
-                className={({ isActive }) => isActive ? 'active' : ''}
-                onClick={() => setOpen(false)}
-              >
-                {t(l.key)}
-              </NavLink>
-            </li>
-          ))}
+          <li>
+            <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''} onClick={close}>
+              {t('nav.home')}
+            </NavLink>
+          </li>
+
+          <DropGroup groupKey="services" label={t('nav.services')} links={serviceLinks} />
+          <DropGroup groupKey="info"     label={t('nav.info')}     links={infoLinks} />
+
+          <li>
+            <NavLink to="/emergency" className={({ isActive }) => isActive ? 'active' : ''} onClick={close}>
+              {t('nav.emergency')}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/first-aid" className={({ isActive }) => isActive ? 'active' : ''} onClick={close}>
+              {t('nav.firstAid')}
+            </NavLink>
+          </li>
+
           <li>
             <select
               className="lang-select"
