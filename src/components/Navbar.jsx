@@ -38,8 +38,6 @@ export default function Navbar() {
   const DropGroup = ({ groupKey, label, links }) => (
     <li
       className={`nav-group${openGroup === groupKey ? ' is-open' : ''}`}
-      onMouseEnter={() => window.innerWidth > 900 && setOpenGroup(groupKey)}
-      onMouseLeave={() => window.innerWidth > 900 && setOpenGroup(null)}
     >
       <button
         className="nav-group-btn"
