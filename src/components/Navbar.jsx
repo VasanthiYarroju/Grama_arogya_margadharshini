@@ -5,7 +5,7 @@ import { useLang } from '../contexts/LangContext';
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const { t, toggleLang } = useLang();
+  const { lang, setLang, t } = useLang();
 
   const links = [
     { to: '/', key: 'nav.home' },
@@ -55,9 +55,15 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <button className="lang-toggle-btn" onClick={toggleLang} title="Switch Language">
-              {t('nav.langBtn')}
-            </button>
+            <select
+              className="lang-select"
+              value={lang}
+              onChange={e => setLang(e.target.value)}
+              aria-label="Select language"
+            >
+              <option value="en">🌐 English</option>
+              <option value="te">🌐 తెలుగు</option>
+            </select>
           </li>
         </ul>
       </div>

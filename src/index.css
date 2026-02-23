@@ -72,14 +72,27 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ── Language toggle button ── */
-.lang-toggle-btn {
-  background: var(--green-deep); color: white;
-  border: none; border-radius: 20px; padding: 5px 14px;
-  font-size: 0.78rem; font-weight: 700; cursor: pointer;
-  letter-spacing: 0.3px; transition: all var(--transition);
+.lang-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--green-deep)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='white' d='M1 1l5 5 5-5'/%3E%3C/svg%3E")
+    no-repeat right 10px center;
+  background-size: 10px 7px;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 30px 5px 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+  transition: background-color var(--transition), transform var(--transition);
   font-family: inherit;
+  outline: none;
 }
-.lang-toggle-btn:hover { background: #1b5e20; transform: scale(1.06); }
+.lang-select:hover { background-color: #1b5e20; transform: scale(1.04); }
+.lang-select option { background: #fff; color: #222; font-weight: 600; }
 
 /* ══════════════════════════════════════════
    EMERGENCY MODAL
