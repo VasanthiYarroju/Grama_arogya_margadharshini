@@ -10,15 +10,18 @@ export default function Footer() {
           <h4>🌿 {t('nav.logo')}</h4>
           <p>{t('footer.about')}</p>
           <p style={{ marginTop: '1rem', fontSize: '0.82rem', opacity: 0.85 }}>
-            📍 {t('footer.village')}: <strong>Badepuram</strong>, Srikakulam Dist., AP – 532484<br />
+            📍 {t('footer.village')}: <strong>Badepuram</strong>, Guntur Dist., AP – 522001<br />
             🏫 {t('footer.institution')}: VVIT, Batch No: <strong>54</strong><br />
             📞 {t('footer.emergency')}: <strong>108</strong>
           </p>
           <div style={{ marginTop: '1rem' }}>
             <p style={{ fontSize: '0.75rem', opacity: 0.7, marginBottom: '.3rem', fontWeight: 600, letterSpacing: '.5px', textTransform: 'uppercase' }}>{t('footer.team')}</p>
             <p style={{ fontSize: '0.78rem', opacity: 0.75, lineHeight: 1.9 }}>
-              22BQ1A05O5 &nbsp;·&nbsp; 22BQ1A05O6<br />
-              22BQ1A05O7 &nbsp;·&nbsp; 22BQ1A05O8 &nbsp;·&nbsp; 23BQ5A0519
+              Yarroju Vasanthi – 22BQ1A05O5<br />
+              Reshma Tanmai – 22BQ1A05O6<br />
+              Shaik Tanveer Bhanu – 22BQ1A05O7<br />
+              Bethamcharla Ashok – 22BQ1A05O8<br />
+              Parimi Pujitha – 23BQ5A0519
             </p>
           </div>
         </div>

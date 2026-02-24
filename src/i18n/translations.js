@@ -17,7 +17,7 @@ const translations = {
 
     // ── FOOTER ───────────────────────────────────────
     footer: {
-      about: 'A community-led initiative to make healthcare information easily accessible to all villagers of Badepuram, Srikakulam District, Andhra Pradesh.',
+      about: 'A community-led initiative to make healthcare information easily accessible to all villagers of Badepuram, Guntur District, Andhra Pradesh.',
       village: 'Village',
       institution: 'Institution',
       emergency: 'Emergency Ambulance',
@@ -29,12 +29,12 @@ const translations = {
       police: 'Police',
       fire: 'Fire',
       mental: 'Mental Health',
-      copy: '© 2025 Grama Arogya Margadarshini — Badepuram Village, Srikakulam District, AP | Batch 54 | CSP Project | Built with ❤️ for rural health awareness.',
+      copy: '© 2025 Grama Arogya Margadarshini — Badepuram Village, Guntur District, AP | Batch 54 | CSP Project | Built with ❤️ for rural health awareness.',
     },
 
     // ── HOME ─────────────────────────────────────────
     home: {
-      badge: 'Community Health Portal · Badepuram · Srikakulam Dist., AP',
+      badge: 'Community Health Portal · Badepuram · Guntur Dist., AP',
       heroTitle1: 'Grama Arogya',
       heroTitle2: ' Margadarshini',
       heroSub: 'Bridging the health information gap for every family in Badepuram.\nHospitals · Emergency · Schemes · ASHA Workers · Free Camps — all in one place.',
@@ -90,7 +90,7 @@ const translations = {
         { icon: '🆓', t: 'Completely Free', d: 'No charges, no registration needed ever' },
       ],
       emBannerTitle: '🚨 Medical Emergency?',
-      emBannerSub: 'Free ambulance available 24/7 across Srikakulam District. One tap to call.',
+      emBannerSub: 'Free ambulance available 24/7 across Guntur District. One tap to call.',
       emBannerBtn: '📞 Call 108 Now',
       services: [
         { icon: '🏥', title: 'Hospitals', desc: '4 nearby hospitals with timings, phone & directions.', to: '/hospitals' },
@@ -164,7 +164,7 @@ const translations = {
       tapSub: '24/7 emergency services for Badepuram village',
       mapTitle: '🗺️ Nearest Hospital Location',
       mapName: 'Badepuram PHC — 0.8 km away',
-      mapAddr: 'Main Road, Badepuram, Srikakulam District, AP – 532484',
+      mapAddr: 'Main Road, Badepuram, Guntur District, AP – 522001',
       mapBtn: '🗺️ Open in Google Maps',
       tipsTitle: '⚠️ What to do before help arrives',
       tips: [
@@ -253,7 +253,7 @@ const translations = {
     },
 
     footer: {
-      about: 'బాడేపురం, శ్రీకాకుళం జిల్లా, ఆంధ్రప్రదేశ్ గ్రామస్థులందరికీ ఆరోగ్య సమాచారాన్ని సులభంగా అందుబాటులోకి తీసుకొచ్చే ఒక సమాజ-నేతృత్వ చొరవ.',
+      about: 'బాడేపురం, గుంటూరు జిల్లా, ఆంధ్రప్రదేశ్ గ్రామస్థులందరికీ ఆరోగ్య సమాచారాన్ని సులభంగా అందుబాటులోకి తీసుకొచ్చే ఒక సమాజ-నేతృత్వ చొరవ.',
       village: 'గ్రామం',
       institution: 'సంస్థ',
       emergency: 'అత్యవసర అంబులెన్స్',
@@ -265,11 +265,11 @@ const translations = {
       police: 'పోలీసులు',
       fire: 'అగ్నిమాపక',
       mental: 'మానసిక ఆరోగ్యం',
-      copy: '© 2025 గ్రామ ఆరోగ్య మార్గదర్శిని — బాడేపురం గ్రామం, శ్రీకాకుళం జిల్లా, AP | బ్యాచ్ 54 | CSP ప్రాజెక్ట్ | గ్రామీణ ఆరోగ్య అవగాహన కోసం ❤️తో నిర్మించబడింది.',
+      copy: '© 2025 గ్రామ ఆరోగ్య మార్గదర్శిని — బాడేపురం గ్రామం, గుంటూరు జిల్లా, AP | బ్యాచ్ 54 | CSP ప్రాజెక్ట్ | గ్రామీణ ఆరోగ్య అవగాహన కోసం ❤️తో నిర్మించబడింది.',
     },
 
     home: {
-      badge: 'సమాజ ఆరోగ్య పోర్టల్ · బాడేపురం · శ్రీకాకుళం జిల్లా, AP',
+      badge: 'సమాజ ఆరోగ్య పోర్టల్ · బాడేపురం · గుంటూరు జిల్లా, AP',
       heroTitle1: 'గ్రామ ఆరోగ్య',
       heroTitle2: ' మార్గదర్శిని',
       heroSub: 'బాడేపురంలో ప్రతి కుటుంబానికి ఆరోగ్య సమాచార అంతరాన్ని పూడ్చడానికి.\nఆసుపత్రులు · అత్యవసర సేవలు · పథకాలు · ASHA కార్యకర్తలు · ఉచిత శిబిరాలు — అన్నీ ఒకే చోట.',
@@ -325,7 +325,7 @@ const translations = {
         { icon: '🆓', t: 'పూర్తిగా ఉచితం', d: 'రుసుమలు లేవు, నమోదు అవసరం లేదు' },
       ],
       emBannerTitle: '🚨 వైద్య అత్యవసర స్థితి?',
-      emBannerSub: 'శ్రీకాకుళం జిల్లాలో 24/7 ఉచిత అంబులెన్స్ అందుబాటులో ఉంది. కాల్ చేయడానికి ఒక్క నొక్కు.',
+      emBannerSub: 'గుంటూరు జిల్లాలో 24/7 ఉచిత అంబులెన్స్ అందుబాటులో ఉంది. కాల్ చేయడానికి ఒక్క నొక్కు.',
       emBannerBtn: '📞 108 కి కాల్ చేయండి',
       services: [
         { icon: '🏥', title: 'ఆసుపత్రులు', desc: 'సమయాలు, ఫోన్ & దిశలతో 4 సమీప ఆసుపత్రులు.', to: '/hospitals' },
@@ -394,7 +394,7 @@ const translations = {
       tapSub: 'బాడేపురం గ్రామానికి 24/7 అత్యవసర సేవలు',
       mapTitle: '🗺️ సమీప ఆసుపత్రి స్థానం',
       mapName: 'బాడేపురం PHC — 0.8 కి.మీ. దూరంలో',
-      mapAddr: 'మెయిన్ రోడ్, బాడేపురం, శ్రీకాకుళం జిల్లా, AP – 532484',
+      mapAddr: 'మెయిన్ రోడ్, బాడేపురం, గుంటూరు జిల్లా, AP – 522001',
       mapBtn: '🗺️ Google Maps లో తెరవండి',
       tipsTitle: '⚠️ సహాయం రాక ముందు ఏమి చేయాలి',
       tips: [
